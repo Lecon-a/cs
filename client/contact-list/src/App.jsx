@@ -8,7 +8,7 @@ const App = () => {
   // we use the useEffect hook to fetch the contacts from the backend when the component mounts/starts
   useEffect(() => {
     // fetch is a javascript API that allows us to make HTTP requests to a server
-    fetch('http://127.0.0.1:5000/contacts')
+    fetch(`${import.meta.env.VITE_API_URL}/contacts`)
     .then(res => res.json())
     .then(data => setContacts(data))
     .catch(err => console.log(err));
