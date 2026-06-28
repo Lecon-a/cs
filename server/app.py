@@ -5,7 +5,7 @@ import os
 
 # create flask app object
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, origins=["https://cs-three-gules.vercel.app"])  # Enable CORS for all routes
 
 
 @app.route("/", methods=["GET"])
