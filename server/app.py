@@ -1,6 +1,7 @@
 # import Flask class/library
 from flask import Flask, jsonify
 from flask_cors import CORS
+import os
 
 # create flask app object
 app = Flask(__name__)
@@ -40,7 +41,12 @@ def get_contacts():
     ]
     return jsonify(contacts)
 
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Get the port from Render's environment, defaulting to 5059 if not found
+    port = int(os.environ.get("PORT", 5059))
+    
+    # Bind to 0.0.0.0 so the application is publicly accessible inside Render
+    app.run(host="0.0.0.0", port=port)
 
 
